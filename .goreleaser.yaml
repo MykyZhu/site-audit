@@ -1,0 +1,57 @@
+version: 2
+
+project_name: site-audit
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: site-audit
+    main: .
+    binary: site-audit
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+    goarch:
+      - amd64   # Intel Mac
+      - arm64   # Apple Silicon (M1/M2/M3)
+    ldflags:
+      - -s -w -X main.Version={{ .Version }}
+
+archives:
+  - id: site-audit
+    builds: [site-audit]
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+
+checksum:
+  name_template: "checksums.txt"
+
+release:
+  github:
+    owner: MykyZhu
+    name: site-audit
+  name_template: "v{{ .Version }}"
+  draft: false
+
+brews:
+  - name: site-audit
+    repository:
+      owner: MykyZhu
+      name: homebrew-site-audit
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    directory: Formula
+    homepage: "https://github.com/MykyZhu/site-audit"
+    description: "TUI website performance auditor — scans pages, captures all network resources, logs timing and size."
+    license: "MIT"
+    install: |
+      bin.install "site-audit"
+    caveats: |
+      site-audit requires chrome-headless-shell to run scans.
+      Install it once with:
+        npx @puppeteer/browsers install chrome-headless-shell
+    test: |
+      system "#{bin}/site-audit", "--version"
