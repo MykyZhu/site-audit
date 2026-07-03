@@ -1,0 +1,607 @@
+SITE AUDIT REPORT
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/
+TITLE:      Mosby's Files
+DATE:       2026-06-25 18:44:41
+LOAD TIME:  6202ms
+RESOURCES:  31 loaded, 299.9KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       64ms       7.0KB        549ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       65ms       984B         550ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  link       76ms       1.0KB        550ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  other      109ms      204.7KB      550ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      59ms       636B         550ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      63ms       3.2KB        550ms      https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  other      58ms       574B         550ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      66ms       1.1KB        550ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      61ms       840B         550ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      61ms       769B         550ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      65ms       757B         550ms      https://www.mosbyfiles.com/_nuxt/Cb6gneuG.js
+  img        200ms      0B           551ms      https://a.storyblok.com/f/290489675855311/1000x1000/019430eb89/f.png
+  img        233ms      0B           551ms      https://a.storyblok.com/f/290489675855311/1000x1000/468e4bf99e/f-1.png
+  img        239ms      0B           551ms      https://a.storyblok.com/f/290489675855311/600x600/4ef2f79aa6/f-2.avif
+  img        245ms      0B           551ms      https://a.storyblok.com/f/290489675855311/1000x1000/d95be3fd6c/f-3.png
+  img        248ms      0B           551ms      https://a.storyblok.com/f/290489675855311/1000x1000/e095dc4c49/f-4.png
+  img        257ms      0B           551ms      https://a.storyblok.com/f/290489675855311/1000x1000/8b5a7398ab/f-5.png
+  img        260ms      0B           551ms      https://a.storyblok.com/f/290489675855311/600x600/34412f0df3/f-6.avif
+  img        63ms       3.1KB        551ms      https://www.mosbyfiles.com/images/scale.svg
+  img        65ms       1.0KB        551ms      https://www.mosbyfiles.com/images/tubik_logo.svg
+  css        214ms      935B         614ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        92ms       11.9KB       852ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        96ms       52.6KB       852ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       47ms       2.3KB        894ms      https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  fetch      355ms      0B           948ms      https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       50ms       807B         1314ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      75ms       0B           1315ms     https://api.storyblok.com/v2/cdn/stories/index?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       65ms       954B         1393ms     https://www.mosbyfiles.com/_nuxt/SectionHero.BmrWB2ah.css
+  script     50ms       2.8KB        1690ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  link       49ms       1.7KB        1690ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  fetch      53ms       388B         2632ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/about
+TITLE:      About | Mosby's Files
+DATE:       2026-06-25 18:44:47
+LOAD TIME:  3326ms
+RESOURCES:  21 loaded, 302.9KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       93ms       7.0KB        544ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       90ms       984B         544ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      120ms      204.7KB      544ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      62ms       636B         544ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      109ms      2.8KB        544ms      https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  other      64ms       574B         545ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      91ms       840B         545ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      110ms      769B         545ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  img        448ms      0B           545ms      https://a.storyblok.com/f/290489675855311/1632x1292/210f62b478/frame-1171277308.png
+  img        460ms      0B           545ms      https://a.storyblok.com/f/290489675855311/1200x800/ab8d2930a1/image-80.png
+  img        541ms      0B           545ms      https://a.storyblok.com/f/290489675855311/1200x800/2cc8c31558/image-81.png
+  img        616ms      0B           545ms      https://a.storyblok.com/f/290489675855311/1600x1535/71b4a70ba2/image-82.png
+  css        106ms      16.4KB       551ms      https://www.mosbyfiles.com/images/signature_mask.svg
+  css        124ms      935B         638ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        103ms      11.9KB       763ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        434ms      52.6KB       763ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       104ms      1.7KB        795ms      https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  fetch      360ms      0B           908ms      https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       47ms       807B         1288ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      77ms       0B           1291ms     https://api.storyblok.com/v2/cdn/stories/about?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  fetch      61ms       388B         2394ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/frank-lloyd-wright
+TITLE:      Frank Lloyd Wright
+DATE:       2026-06-25 18:44:50
+LOAD TIME:  3296ms
+RESOURCES:  50 loaded, 728.4KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       63ms       7.0KB        697ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       62ms       1.0KB        697ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       60ms       984B         697ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      63ms       636B         697ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      120ms      204.7KB      697ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      89ms       4.3KB        697ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  other      65ms       1.1KB        697ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      64ms       574B         698ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      66ms       769B         698ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      68ms       840B         698ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      68ms       1.6KB        698ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  other      66ms       959B         698ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  other      89ms       1.1KB        698ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  other      110ms      1023B        698ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  other      127ms      1.2KB        698ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  other      129ms      959B         698ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  other      128ms      1.2KB        698ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  other      119ms      1.2KB        698ms      https://www.mosbyfiles.com/_nuxt/D6luxO_C.js
+  img        184ms      0B           698ms      https://a.storyblok.com/f/290489675855311/2670x3051/55cb173504/frank-lloyd-wright.avif
+  img        192ms      0B           698ms      https://a.storyblok.com/f/290489675855311/1569x1206/d63813ef39/frank-lloyd-wright-07.avif
+  img        175ms      0B           698ms      https://a.storyblok.com/f/290489675855311/1344x894/a6d10ac77f/frank-lloyd-wright-05.avif
+  img        204ms      0B           698ms      https://a.storyblok.com/f/290489675855311/1578x903/33e29819e8/frank-lloyd-wright-04.avif
+  img        360ms      0B           698ms      https://a.storyblok.com/f/290489675855311/735x537/4d40f63dc0/frank-lloyd-wright-02.avif
+  img        429ms      0B           698ms      https://a.storyblok.com/f/290489675855311/1761x1389/f8b9688373/plan.png
+  img        424ms      0B           699ms      https://a.storyblok.com/f/290489675855311/1980x1320/9ef6c2ff4e/frank-lloyd-wright-09.avif
+  img        425ms      0B           699ms      https://a.storyblok.com/f/290489675855311/1050x774/1a04b8960b/frank-lloyd-wright-08.avif
+  img        427ms      0B           699ms      https://a.storyblok.com/f/290489675855311/1527x627/716027e620/group-520225098.png
+  css        137ms      935B         760ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        245ms      371.5KB      899ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        100ms      2.3KB        900ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        97ms       2.0KB        900ms      https://www.mosbyfiles.com/images/avif/note_marks_1.avif
+  css        265ms      34.4KB       900ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        245ms      11.9KB       900ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        262ms      52.6KB       900ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       202ms      4.4KB        964ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      317ms      0B           1175ms     https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       48ms       807B         1519ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      162ms      0B           1522ms     https://api.storyblok.com/v2/cdn/stories//cases/frank-lloyd-wright?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       49ms       842B         1691ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       47ms       1.1KB        1693ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       49ms       1.2KB        1743ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  link       49ms       863B         1744ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       50ms       851B         1745ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  link       49ms       913B         1747ms     https://www.mosbyfiles.com/_nuxt/ContentVideo.PHRlWHE6.css
+  fetch      51ms       515B         1840ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     48ms       3.2KB        1981ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       48ms       2.3KB        1981ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  link       49ms       1.7KB        1981ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  script     48ms       2.8KB        1981ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  fetch      48ms       388B         2842ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/irving-gill
+TITLE:      Irving Gill
+DATE:       2026-06-25 18:44:54
+LOAD TIME:  3293ms
+RESOURCES:  61 loaded, 2.1MB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       61ms       7.0KB        509ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       62ms       1.0KB        509ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       60ms       984B         509ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  script     111ms      204.7KB      509ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  script     105ms      4.3KB        510ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  script     107ms      636B         510ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  script     66ms       1.1KB        510ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  script     65ms       574B         510ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  script     154ms      840B         510ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  script     284ms      769B         510ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  script     261ms      1.6KB        510ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  script     106ms      959B         510ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  script     107ms      1.1KB        510ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  script     108ms      1023B        510ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  script     108ms      1.2KB        510ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  script     130ms      1.2KB        510ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  script     154ms      959B         510ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  script     108ms      981B         510ms      https://www.mosbyfiles.com/_nuxt/BH_JogWL.js
+  script     109ms      1.2KB        510ms      https://www.mosbyfiles.com/_nuxt/AZFwbUTZ.js
+  img        135ms      0B           512ms      https://a.storyblok.com/f/290489675855311/2670x3051/2e1559825e/irving-gill.avif
+  img        258ms      0B           512ms      https://a.storyblok.com/f/290489675855311/3072x2406/2172742480/frame-1171277294.avif
+  img        260ms      0B           512ms      https://a.storyblok.com/f/290489675855311/1791x1464/110a705f0f/f1.avif
+  img        282ms      0B           512ms      https://a.storyblok.com/f/290489675855311/1422x1029/b75879663c/irving-gill-05.avif
+  img        258ms      1.3MB        512ms      https://www.mosbyfiles.com/images/png/film_reel.png
+  img        278ms      170.6KB      512ms      https://www.mosbyfiles.com/images/png/film_reel_shadow.png
+  img        296ms      0B           512ms      https://a.storyblok.com/f/290489675855311/1458x1137/126ef11bb1/irving-gill-08.avif
+  img        303ms      0B           512ms      https://a.storyblok.com/f/290489675855311/1704x1194/071c540d15/irving-gill-09.avif
+  img        310ms      0B           512ms      https://a.storyblok.com/f/290489675855311/1734x1026/8d74ecfcd8/irving-gill-07.avif
+  img        322ms      0B           512ms      https://a.storyblok.com/f/290489675855311/2229x1752/871f904ede/frame-1171277299.avif
+  img        333ms      0B           512ms      https://a.storyblok.com/f/290489675855311/2235x627/92ea675f69/frame-1171277301.avif
+  img        457ms      0B           512ms      https://a.storyblok.com/f/290489675855311/3282x2168/119ba0b1ed/frame-1171277297.avif
+  img        457ms      0B           512ms      https://a.storyblok.com/f/290489675855311/1713x2160/125a7bf380/laughlin-house-plan.avif
+  img        457ms      0B           513ms      https://a.storyblok.com/f/290489675855311/1191x1577/ecb545b590/irving-gill-10.avif
+  img        463ms      0B           513ms      https://a.storyblok.com/f/290489675855311/1176x933/fc93575e13/irving-gill-14.avif
+  img        463ms      0B           513ms      https://a.storyblok.com/f/290489675855311/936x1173/d3590b3ca7/irving-gill-13.avif
+  img        670ms      0B           513ms      https://a.storyblok.com/f/290489675855311/1284x1937/3ba637f8f1/pdf.png
+  css        215ms      935B         571ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        102ms      371.5KB      789ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        115ms      2.3KB        789ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        63ms       34.4KB       789ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        102ms      5.6KB        790ms      https://www.mosbyfiles.com/images/avif/note_mask_1.avif
+  css        108ms      2.0KB        790ms      https://www.mosbyfiles.com/images/avif/note_marks_1.avif
+  css        119ms      11.9KB       790ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        299ms      52.6KB       790ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       251ms      4.4KB        839ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      254ms      0B           1100ms     https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       51ms       807B         1374ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      78ms       0B           1377ms     https://api.storyblok.com/v2/cdn/stories//cases/irving-gill?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       49ms       842B         1462ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       47ms       1.1KB        1464ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       64ms       851B         1513ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  link       50ms       1.2KB        1513ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  link       47ms       784B         1514ms     https://www.mosbyfiles.com/_nuxt/ContentFilmReel.B2Ge-Up5.css
+  link       51ms       863B         1515ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       47ms       747B         1516ms     https://www.mosbyfiles.com/_nuxt/ContentPdf.CaZZCKKW.css
+  fetch      53ms       515B         1614ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     47ms       3.2KB        1735ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       51ms       2.3KB        1736ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  link       51ms       1.7KB        1736ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  script     83ms       2.8KB        1736ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  fetch      50ms       388B         2618ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/frank-gehry
+TITLE:      Frank Gehry
+DATE:       2026-06-25 18:44:57
+LOAD TIME:  2965ms
+RESOURCES:  53 loaded, 735.6KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       54ms       7.0KB        537ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       52ms       1.0KB        537ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       55ms       984B         537ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      96ms       204.7KB      537ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      55ms       636B         537ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      56ms       574B         537ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      60ms       1.1KB        537ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      70ms       4.3KB        537ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  other      57ms       769B         537ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      59ms       840B         537ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      76ms       1.6KB        537ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  other      99ms       959B         537ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  other      77ms       1023B        538ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  other      98ms       959B         538ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  other      100ms      1.2KB        538ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  other      100ms      1.1KB        538ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  other      97ms       1.2KB        538ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  other      98ms       1.2KB        538ms      https://www.mosbyfiles.com/_nuxt/D6luxO_C.js
+  img        114ms      0B           538ms      https://a.storyblok.com/f/290489675855311/2670x3051/fe5585eaf8/frank-gehry.avif
+  img        144ms      0B           538ms      https://a.storyblok.com/f/290489675855311/2124x1428/4a8d3127e0/frank-gehry-07.avif
+  img        147ms      0B           538ms      https://a.storyblok.com/f/290489675855311/1158x555/9b6a28912b/frank-gehry-08.avif
+  img        183ms      0B           538ms      https://a.storyblok.com/f/290489675855311/1116x900/99392d50bf/frank-gehry-01.avif
+  img        230ms      0B           538ms      https://a.storyblok.com/f/290489675855311/2124x1419/eafe5cfcb1/frank-gehry-02.avif
+  img        198ms      0B           538ms      https://a.storyblok.com/f/290489675855311/1965x4800/a9d10c9922/zirkel.avif
+  img        202ms      0B           538ms      https://a.storyblok.com/f/290489675855311/1564x1180/301128a216/frank-gehry-04.avif
+  img        207ms      0B           538ms      https://a.storyblok.com/f/290489675855311/1806x1350/cad80617f0/frank-gehry-03.avif
+  img        211ms      0B           538ms      https://a.storyblok.com/f/290489675855311/2547x1149/c606ca5a38/frank-gehry-06.avif
+  img        217ms      0B           538ms      https://a.storyblok.com/f/290489675855311/1753x962/d36d592b9d/frank-gehry-05.avif
+  css        132ms      935B         592ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        83ms       371.5KB      726ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        84ms       2.3KB        726ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        50ms       5.2KB        726ms      https://www.mosbyfiles.com/images/avif/note_mask_2.avif
+  css        85ms       34.4KB       726ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        83ms       2.7KB        726ms      https://www.mosbyfiles.com/images/avif/note_mask_3.avif
+  css        85ms       1.2KB        726ms      https://www.mosbyfiles.com/images/avif/note_marks_2.avif
+  css        91ms       11.9KB       727ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        91ms       52.6KB       727ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       55ms       4.4KB        764ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      289ms      0B           827ms      https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       47ms       807B         1139ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      84ms       0B           1142ms     https://api.storyblok.com/v2/cdn/stories//cases/frank-gehry?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       48ms       842B         1232ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       50ms       1.1KB        1234ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       51ms       863B         1286ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       52ms       851B         1286ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  link       54ms       913B         1286ms     https://www.mosbyfiles.com/_nuxt/ContentVideo.PHRlWHE6.css
+  link       52ms       1.2KB        1287ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  fetch      48ms       515B         1381ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     138ms      3.2KB        1514ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       47ms       2.3KB        1514ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  script     47ms       2.8KB        1514ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  link       48ms       1.7KB        1514ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  fetch      62ms       388B         2382ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/louis-kahn
+TITLE:      Louis Kahn
+DATE:       2026-06-25 18:45:00
+LOAD TIME:  3068ms
+RESOURCES:  61 loaded, 825.6KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       60ms       7.0KB        605ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       61ms       1.0KB        605ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       62ms       984B         605ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      66ms       636B         606ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      121ms      204.7KB      606ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      64ms       4.3KB        606ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  other      85ms       1.1KB        606ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      66ms       840B         606ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      84ms       574B         606ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      84ms       769B         606ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      65ms       1.6KB        606ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  other      85ms       959B         606ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  other      82ms       1023B        606ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  other      86ms       1.1KB        606ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  other      137ms      1.2KB        606ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  other      119ms      1.2KB        606ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  other      120ms      675B         606ms      https://www.mosbyfiles.com/_nuxt/DXUW-Xpv.js
+  other      138ms      959B         606ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  other      138ms      1.6KB        606ms      https://www.mosbyfiles.com/_nuxt/CxsKrEr-.js
+  img        159ms      0B           606ms      https://a.storyblok.com/f/290489675855311/2670x3051/39bc9c7e86/louis-kahn.avif
+  img        166ms      0B           606ms      https://a.storyblok.com/f/290489675855311/2061x1176/1a692072be/louis-kahn-12.avif
+  img        179ms      0B           606ms      https://a.storyblok.com/f/290489675855311/1947x1820/58cd0364aa/louis-kahn-11.avif
+  img        194ms      0B           606ms      https://a.storyblok.com/f/290489675855311/1083x1455/9eee3cb17c/louis-kahn-10.avif
+  img        209ms      0B           606ms      https://a.storyblok.com/f/290489675855311/2462x1770/ed10ff7b9a/louis-kahn-09.avif
+  img        217ms      0B           607ms      https://a.storyblok.com/f/290489675855311/1318x1051/d0b1a77712/louis-kahn-08.avif
+  img        136ms      89.8KB       607ms      https://www.mosbyfiles.com/images/avif/ruler.avif
+  img        225ms      0B           607ms      https://a.storyblok.com/f/290489675855311/1094x863/96a3ca132a/louis-kahn-07.avif
+  img        233ms      0B           607ms      https://a.storyblok.com/f/290489675855311/1366x922/4629687647/louis-kahn-06.avif
+  img        237ms      0B           607ms      https://a.storyblok.com/f/290489675855311/1694x1139/7fdc392d28/louis-kahn-04.avif
+  img        244ms      0B           607ms      https://a.storyblok.com/f/290489675855311/1322x890/f1fdc2a52d/louis-kahn-03.avif
+  img        246ms      0B           607ms      https://a.storyblok.com/f/290489675855311/1602x1080/c79c80b870/louis-kahn-05.avif
+  img        258ms      0B           607ms      https://a.storyblok.com/f/290489675855311/1532x1142/835e79976a/louis-kahn-02.avif
+  css        130ms      935B         666ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        103ms      371.5KB      798ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        104ms      2.3KB        798ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        68ms       34.4KB       798ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        104ms      5.7KB        799ms      https://www.mosbyfiles.com/images/avif/note_mask_5.avif
+  css        103ms      1.1KB        799ms      https://www.mosbyfiles.com/images/avif/note_marks_3.avif
+  css        104ms      11.9KB       799ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        106ms      52.6KB       799ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       62ms       4.4KB        844ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      249ms      0B           914ms      https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       48ms       807B         1174ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      96ms       0B           1176ms     https://api.storyblok.com/v2/cdn/stories//cases/louis-kahn?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       54ms       842B         1284ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       47ms       1.1KB        1286ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       53ms       863B         1335ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       47ms       1.2KB        1336ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  link       57ms       1.1KB        1336ms     https://www.mosbyfiles.com/_nuxt/ContentAudio.CprPQ2XS.css
+  link       50ms       851B         1337ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  link       47ms       1.3KB        1338ms     https://www.mosbyfiles.com/_nuxt/ContentRuler.DiQOyUtL.css
+  fetch      278ms      0B           1416ms     https://gbbym32af9tcgjfi.public.blob.vercel-storage.com/audio/louis_kahn_part_2.json
+  fetch      419ms      0B           1417ms     https://gbbym32af9tcgjfi.public.blob.vercel-storage.com/audio/louis_kahn_part_1.json
+  fetch      50ms       515B         1432ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     48ms       3.2KB        1568ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       73ms       2.3KB        1568ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  script     47ms       2.8KB        1568ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  link       48ms       1.7KB        1568ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  audio      227ms      0B           1704ms     https://gbbym32af9tcgjfi.public.blob.vercel-storage.com/audio/7ef30141-f14e-5364-a33c-6ae2038cc9ec.mp3
+  audio      180ms      0B           1838ms     https://gbbym32af9tcgjfi.public.blob.vercel-storage.com/audio/b82469ae-0943-5b95-834d-e1b9e5f858b1.mp3
+  fetch      50ms       388B         2436ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/i-m-pei
+TITLE:      I. M. Pei
+DATE:       2026-06-25 18:45:03
+LOAD TIME:  2951ms
+RESOURCES:  52 loaded, 726.4KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       62ms       7.0KB        482ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       63ms       1.0KB        482ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       108ms      984B         482ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      119ms      204.7KB      482ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      92ms       636B         482ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      114ms      4.3KB        482ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  other      69ms       1.1KB        483ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      85ms       840B         483ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      92ms       574B         483ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      67ms       769B         483ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      90ms       1.6KB        483ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  other      68ms       959B         483ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  other      90ms       1.1KB        483ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  other      66ms       1.2KB        483ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  other      118ms      1023B        483ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  other      118ms      959B         483ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  other      117ms      1.2KB        483ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  other      116ms      1.2KB        484ms      https://www.mosbyfiles.com/_nuxt/D6luxO_C.js
+  img        164ms      0B           484ms      https://a.storyblok.com/f/290489675855311/2670x3051/ca61586c14/i-m-pei.avif
+  img        181ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1672x1605/22c2686b21/i-m-pei-05.avif
+  img        146ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1961x1349/c176b35324/i-m-pei-04.avif
+  img        215ms      0B           484ms      https://a.storyblok.com/f/290489675855311/2122x1572/9aa9e80ac9/i-m-pei-08.avif
+  img        216ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1076x583/4c21bd5d64/i-m-pei-03.avif
+  img        222ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1263x916/54ae99f932/i-m-pei-07.avif
+  img        226ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1233x838/db48ea1d8d/i-m-pei-06.avif
+  img        245ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1409x1746/b376c64e06/i-m-pei-11.avif
+  img        342ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1651x1178/ab0ed1c65b/i-m-pei-10.avif
+  img        342ms      0B           484ms      https://a.storyblok.com/f/290489675855311/593x1614/9b0a39c8c7/i-m-pei-09.avif
+  img        342ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1923x888/0f114e88b9/scissors.avif
+  img        342ms      0B           484ms      https://a.storyblok.com/f/290489675855311/1095x780/b3b9a6a04c/i-m-pei-01.avif
+  css        123ms      935B         545ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        121ms      371.5KB      670ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        74ms       2.3KB        670ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        73ms       34.4KB       670ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        122ms      11.9KB       670ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        126ms      52.6KB       671ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       65ms       4.4KB        742ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      247ms      0B           814ms      https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       45ms       807B         1082ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      78ms       0B           1085ms     https://api.storyblok.com/v2/cdn/stories//cases/i-m-pei?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       50ms       842B         1172ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       49ms       1.1KB        1174ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       49ms       863B         1226ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       109ms      1.2KB        1226ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  link       46ms       851B         1226ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  link       49ms       913B         1228ms     https://www.mosbyfiles.com/_nuxt/ContentVideo.PHRlWHE6.css
+  fetch      51ms       515B         1375ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     49ms       3.2KB        1503ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       51ms       2.3KB        1503ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  script     45ms       2.8KB        1503ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  link       52ms       1.7KB        1503ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  fetch      46ms       388B         2377ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/paul-rudolph
+TITLE:      Paul Rudolph
+DATE:       2026-06-25 18:45:06
+LOAD TIME:  3012ms
+RESOURCES:  60 loaded, 736.9KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       95ms       7.0KB        498ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       76ms       1.0KB        498ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       59ms       984B         498ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      99ms       204.7KB      498ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      64ms       636B         498ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      63ms       4.3KB        498ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  other      64ms       1.1KB        498ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      100ms      574B         498ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      65ms       769B         499ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      65ms       840B         499ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      84ms       1.6KB        499ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  other      61ms       1.1KB        499ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  other      62ms       959B         499ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  other      102ms      1023B        499ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  other      100ms      959B         499ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  other      100ms      1.2KB        499ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  other      101ms      1.2KB        499ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  other      102ms      1.2KB        499ms      https://www.mosbyfiles.com/_nuxt/D6luxO_C.js
+  img        172ms      0B           499ms      https://a.storyblok.com/f/290489675855311/2670x3051/5c62151b9e/paul-rudolph.avif
+  img        216ms      0B           499ms      https://a.storyblok.com/f/290489675855311/1058x1552/837d5acc40/paul-rudolph-04.avif
+  img        161ms      0B           499ms      https://a.storyblok.com/f/290489675855311/2010x1716/ee7e873b9a/paul-rudolph-03.avif
+  img        181ms      0B           499ms      https://a.storyblok.com/f/290489675855311/960x654/a460aded81/paul-rudolph-02.avif
+  img        192ms      0B           499ms      https://a.storyblok.com/f/290489675855311/1528x1046/c4e92aef13/paul-rudolph-09.avif
+  img        204ms      0B           499ms      https://a.storyblok.com/f/290489675855311/1251x1835/b5c09037a3/paul-rudolph-06.avif
+  img        228ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1518x984/d54b0543bb/frame-1171277302.avif
+  img        280ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1518x846/a2b07b8498/frame-1171277304.avif
+  img        280ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1237x846/b8b565f7b8/paul-rudolph-05.avif
+  img        280ms      0B           500ms      https://a.storyblok.com/f/290489675855311/813x732/0cd820b604/video.avif
+  img        280ms      0B           500ms      https://a.storyblok.com/f/290489675855311/996x1299/c95a70e49c/paul-rudolph-13.avif
+  img        342ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1206x1734/9f48301764/paul-rudolph-12.avif
+  img        288ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1605x1127/abfb2ffc93/paul-rudolph-11.avif
+  img        341ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1779x975/333d274d37/paul-rudolph-16.avif
+  img        342ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1836x789/a2ba73aa8f/paul-rudolph-15.avif
+  img        342ms      0B           500ms      https://a.storyblok.com/f/290489675855311/1183x825/84ebffb0d1/paul-rudolph-14.avif
+  css        148ms      935B         594ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        103ms      371.5KB      744ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        103ms      2.3KB        744ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        104ms      2.2KB        744ms      https://www.mosbyfiles.com/images/avif/note_mask_4.avif
+  css        103ms      34.4KB       744ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        102ms      2.0KB        744ms      https://www.mosbyfiles.com/images/avif/note_marks_1.avif
+  css        108ms      5.2KB        744ms      https://www.mosbyfiles.com/images/avif/note_mask_2.avif
+  css        61ms       1.1KB        744ms      https://www.mosbyfiles.com/images/avif/note_marks_3.avif
+  css        106ms      11.9KB       745ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        106ms      52.6KB       745ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       74ms       4.4KB        778ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      250ms      0B           861ms      https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       52ms       807B         1130ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      77ms       0B           1133ms     https://api.storyblok.com/v2/cdn/stories//cases/paul-rudolph?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       48ms       842B         1220ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       47ms       1.1KB        1222ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       78ms       863B         1272ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       50ms       851B         1273ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  link       49ms       1.2KB        1273ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  link       46ms       913B         1274ms     https://www.mosbyfiles.com/_nuxt/ContentVideo.PHRlWHE6.css
+  fetch      50ms       515B         1374ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     49ms       3.2KB        1519ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       49ms       2.3KB        1519ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  link       49ms       1.7KB        1519ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  script     50ms       2.8KB        1519ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  fetch      47ms       388B         2378ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/mary-colter
+TITLE:      Mary Colter
+DATE:       2026-06-25 18:45:09
+LOAD TIME:  3201ms
+RESOURCES:  53 loaded, 732.0KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       113ms      7.0KB        653ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       69ms       1.0KB        653ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       109ms      984B         653ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      116ms      204.7KB      653ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      62ms       4.3KB        654ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  other      85ms       636B         654ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      93ms       1.1KB        654ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      69ms       574B         654ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      65ms       840B         654ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      64ms       769B         654ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      83ms       1.6KB        654ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  other      71ms       959B         654ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  other      85ms       1.1KB        654ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  other      67ms       1023B        654ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  other      70ms       1.2KB        654ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  other      114ms      959B         654ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  other      113ms      1.2KB        654ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  img        215ms      0B           654ms      https://a.storyblok.com/f/290489675855311/2670x3051/0cfbd2668c/mary-colter.avif
+  img        196ms      0B           655ms      https://a.storyblok.com/f/290489675855311/1633x1154/b30761070a/mary-colter-04.avif
+  img        207ms      0B           655ms      https://a.storyblok.com/f/290489675855311/1442x925/7580dc6d47/mary-colter-05.avif
+  img        221ms      0B           655ms      https://a.storyblok.com/f/290489675855311/1437x922/786285db34/mary-colter-03.avif
+  img        321ms      0B           655ms      https://a.storyblok.com/f/290489675855311/1989x1422/5c95bd73e8/mary-colter-12.avif
+  img        428ms      0B           655ms      https://a.storyblok.com/f/290489675855311/957x957/534f775c53/frame-1171277247.avif
+  img        235ms      0B           655ms      https://a.storyblok.com/f/290489675855311/945x1197/8602dbf097/mary-colter-10.avif
+  img        321ms      0B           655ms      https://a.storyblok.com/f/290489675855311/1034x1468/ae69da17a0/mary-colter-11.avif
+  img        355ms      0B           655ms      https://a.storyblok.com/f/290489675855311/2997x2073/1223a0a32b/frame-1171277305.avif
+  img        265ms      0B           655ms      https://a.storyblok.com/f/290489675855311/900x696/7c46447d55/mary-colter-08.avif
+  img        354ms      0B           655ms      https://a.storyblok.com/f/290489675855311/1995x1224/4c38d0a201/mary-colter-09.avif
+  img        355ms      0B           655ms      https://a.storyblok.com/f/290489675855311/2233x1215/90ab87d493/mary-colter-07.avif
+  img        355ms      0B           655ms      https://a.storyblok.com/f/290489675855311/1365x921/eb2a75e00f/mary-colter-06.avif
+  css        131ms      935B         766ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        91ms       2.3KB        900ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        157ms      371.5KB      900ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        153ms      34.4KB       900ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        154ms      2.0KB        900ms      https://www.mosbyfiles.com/images/avif/note_marks_1.avif
+  css        91ms       5.7KB        900ms      https://www.mosbyfiles.com/images/avif/note_mask_5.avif
+  css        153ms      11.9KB       900ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        154ms      52.6KB       901ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       119ms      4.4KB        936ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      242ms      0B           1064ms     https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       48ms       807B         1328ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      96ms       0B           1332ms     https://api.storyblok.com/v2/cdn/stories//cases/mary-colter?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       51ms       842B         1433ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       48ms       1.1KB        1435ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       54ms       863B         1486ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       46ms       1.2KB        1487ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  link       47ms       851B         1488ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  fetch      51ms       515B         1563ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     73ms       3.2KB        1685ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       60ms       2.3KB        1685ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  script     45ms       2.8KB        1685ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  link       67ms       1.7KB        1685ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  fetch      48ms       388B         2565ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
+PAGE:       https://www.mosbyfiles.com/cases/louis-sullivan
+TITLE:      Louis Sullivan
+DATE:       2026-06-25 18:45:13
+LOAD TIME:  2978ms
+RESOURCES:  52 loaded, 729.4KB total
+
+  TYPE       DURATION   SIZE         START      URL
+  ----------------------------------------------------------------------------
+  link       53ms       1.0KB        495ms      https://www.mosbyfiles.com/_nuxt/useThemeColor.WxHIa4AZ.css
+  link       56ms       7.0KB        495ms      https://www.mosbyfiles.com/_nuxt/entry.DlXj4Qwm.css
+  link       49ms       984B         495ms      https://www.mosbyfiles.com/_nuxt/RichText.BIjpaKLB.css
+  other      54ms       636B         495ms      https://www.mosbyfiles.com/_nuxt/BDRIqJ7E.js
+  other      58ms       4.3KB        495ms      https://www.mosbyfiles.com/_nuxt/DUJV-uwa.js
+  other      105ms      204.7KB      495ms      https://www.mosbyfiles.com/_nuxt/BkBRChVy.js
+  other      55ms       840B         495ms      https://www.mosbyfiles.com/_nuxt/CfaRIRsH.js
+  other      56ms       574B         495ms      https://www.mosbyfiles.com/_nuxt/Cy6DvjSa.js
+  other      57ms       1.1KB        495ms      https://www.mosbyfiles.com/_nuxt/GyRhprBB.js
+  other      56ms       1023B        495ms      https://www.mosbyfiles.com/_nuxt/Dtsbr2D5.js
+  other      56ms       1.1KB        495ms      https://www.mosbyfiles.com/_nuxt/XzUIVO4G.js
+  other      57ms       959B         495ms      https://www.mosbyfiles.com/_nuxt/CiLGMuGp.js
+  other      76ms       1.6KB        495ms      https://www.mosbyfiles.com/_nuxt/yzr33r0Q.js
+  other      81ms       769B         495ms      https://www.mosbyfiles.com/_nuxt/BTFGmflD.js
+  other      104ms      1.2KB        495ms      https://www.mosbyfiles.com/_nuxt/DmaKgo0D.js
+  other      105ms      1.2KB        495ms      https://www.mosbyfiles.com/_nuxt/DcapMKLv.js
+  other      104ms      1.2KB        495ms      https://www.mosbyfiles.com/_nuxt/AZFwbUTZ.js
+  other      104ms      959B         495ms      https://www.mosbyfiles.com/_nuxt/DLHL7yHy.js
+  img        119ms      0B           495ms      https://a.storyblok.com/f/290489675855311/2670x3051/92172e41d8/louis-sullivan.avif
+  img        174ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1284x1937/c80711de08/pdf2.avif
+  img        188ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1296x1494/3994d78c3f/louis-sullivan-07.avif
+  img        195ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1281x1805/9482440a7f/louis-sullivan-06.avif
+  img        208ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1440x1986/9512fa6b2d/louis-sullivan-05.avif
+  img        274ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1562x2130/b783d67585/louis-sullivan-08.avif
+  img        315ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1209x981/3ce75dc31a/louis-sullivan-04.avif
+  img        320ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1800x1278/2f3a418d52/louis-sullivan-01.avif
+  img        319ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1593x1866/5b9692e7f7/louis-sullivan-03.avif
+  img        320ms      0B           495ms      https://a.storyblok.com/f/290489675855311/1212x909/ef64f6bc07/louis-sullivan-02.avif
+  css        124ms      935B         550ms      https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap
+  css        181ms      371.5KB      676ms      https://www.mosbyfiles.com/images/avif/sheet_overlay.avif
+  css        94ms       2.3KB        677ms      https://www.mosbyfiles.com/images/avif/sheet_marks.avif
+  css        168ms      34.4KB       677ms      https://www.mosbyfiles.com/images/avif/note_overlay.avif
+  css        179ms      2.0KB        677ms      https://www.mosbyfiles.com/images/avif/note_mask_6.avif
+  css        94ms       1.1KB        677ms      https://www.mosbyfiles.com/images/avif/note_marks_3.avif
+  css        179ms      11.9KB       677ms      https://www.mosbyfiles.com/fonts/founders-grotesk-x-condensed-bold.woff2
+  css        179ms      52.6KB       677ms      https://www.mosbyfiles.com/fonts/signifier-light.woff2
+  link       151ms      4.4KB        706ms      https://www.mosbyfiles.com/_nuxt/_slug_.DoQEXokL.css
+  fetch      262ms      0B           863ms      https://api.storyblok.com/v2/cdn/stories/global?version=published&resolve_relations=stack-group.cases&token=WdeDlX0eomdlf8mnDLcSYQtt&resolve_level=2
+  link       200ms      807B         1149ms     https://www.mosbyfiles.com/_nuxt/Grid.CkPliBYI.css
+  fetch      76ms       0B           1152ms     https://api.storyblok.com/v2/cdn/stories//cases/louis-sullivan?version=published&resolve_relations=&token=WdeDlX0eomdlf8mnDLcSYQtt&cv=1782376549&resolve_level=2
+  link       48ms       842B         1237ms     https://www.mosbyfiles.com/_nuxt/ContentPaperclip.DV767s38.css
+  link       49ms       1.1KB        1239ms     https://www.mosbyfiles.com/_nuxt/ScrapbookItem.Cuu1XukY.css
+  link       48ms       863B         1289ms     https://www.mosbyfiles.com/_nuxt/ContentPhoto.CDToH5QG.css
+  link       55ms       851B         1290ms     https://www.mosbyfiles.com/_nuxt/ContentStack.D9PcHDZ5.css
+  link       47ms       1.2KB        1290ms     https://www.mosbyfiles.com/_nuxt/ContentNote.Oc3S8WKY.css
+  link       48ms       747B         1346ms     https://www.mosbyfiles.com/_nuxt/ContentPdf.CaZZCKKW.css
+  fetch      53ms       515B         1424ms     https://www.mosbyfiles.com/api/_nuxt_icon/mdi.json?icons=arrow-right
+  script     49ms       3.2KB        1548ms     https://www.mosbyfiles.com/_nuxt/KDP5eFYU.js
+  link       45ms       2.3KB        1548ms     https://www.mosbyfiles.com/_nuxt/index.BM7xqO5S.css
+  script     48ms       2.8KB        1548ms     https://www.mosbyfiles.com/_nuxt/8fqLxrIM.js
+  link       48ms       1.7KB        1548ms     https://www.mosbyfiles.com/_nuxt/about.Cbj5gFVH.css
+  fetch      51ms       388B         2428ms     https://www.mosbyfiles.com/_nuxt/builds/meta/eaaacfb0-976c-407e-a12f-f6ce6d21e23e.json
+
+================================================================================
+
