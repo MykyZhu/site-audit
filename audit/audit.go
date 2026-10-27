@@ -9,6 +9,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/chromedp/cdproto/cdp"
 	"github.com/chromedp/cdproto/network"
 	"github.com/chromedp/chromedp"
 )
@@ -78,7 +79,7 @@ func findChrome() (string, error) {
 		}
 	}
 
-	pathDirs := strings.Split(os.Getenv("PATH"), ":")
+	pathDirs := filepath.SplitList(os.Getenv("PATH"))
 	names := []string{"chrome-headless-shell", "google-chrome", "chromium", "chromium-browser"}
 	for _, dir := range pathDirs {
 		for _, name := range names {
@@ -90,24 +91,24 @@ func findChrome() (string, error) {
 	}
 
 	return "", fmt.Errorf(
-		"could not find Chrome or chrome-headless-shell.\n" +
-			"Install with: npx @puppeteer/browsers install chrome-headless-shell\n" +
-			"Or set the CHROME_PATH environment variable to the binary path.",
+		"could not find Chrome or chrome-headless-shell — " +
+			"install with: npx @puppeteer/browsers install chrome-headless-shell " +
+			"(or set CHROME_PATH to the binary path)",
 	)
 }
 
-// Run audits a single URL via CDP Network events — captures every request
-// the browser makes regardless of origin, including cross-origin CDNs.
-func Run(pageURL string) PageResult {
-	result := PageResult{
-		URL:  pageURL,
-		Date: time.Now(),
-	}
+// Browser is one headless Chrome process shared by every page in a scan.
+// Each page gets its own tab, so Chrome only starts once per scan.
+type Browser struct {
+	ctx    context.Context
+	cancel func()
+}
 
+// NewBrowser launches headless Chrome. Call Close when the scan is done.
+func NewBrowser() (*Browser, error) {
 	chromePath, err := findChrome()
 	if err != nil {
-		result.Error = err.Error()
-		return result
+		return nil, err
 	}
 
 	opts := append(chromedp.DefaultExecAllocatorOptions[:],
@@ -120,21 +121,53 @@ func Run(pageURL string) PageResult {
 	)
 
 	allocCtx, cancelAlloc := chromedp.NewExecAllocator(context.Background(), opts...)
-	defer cancelAlloc()
+	browserCtx, cancelBrowser := chromedp.NewContext(allocCtx)
 
-	ctx, cancelCtx := chromedp.NewContext(allocCtx)
-	defer cancelCtx()
+	// Running with no actions starts the browser process.
+	if err := chromedp.Run(browserCtx); err != nil {
+		cancelBrowser()
+		cancelAlloc()
+		return nil, fmt.Errorf("could not start browser: %w", err)
+	}
 
-	ctx, cancelTimeout := context.WithTimeout(ctx, 90*time.Second)
+	return &Browser{
+		ctx: browserCtx,
+		cancel: func() {
+			cancelBrowser()
+			cancelAlloc()
+		},
+	}, nil
+}
+
+// Close shuts down the Chrome process. Safe to call on nil or more than once.
+func (b *Browser) Close() {
+	if b != nil && b.cancel != nil {
+		b.cancel()
+	}
+}
+
+// Run audits a single URL in a new tab via CDP Network events — captures every
+// request the browser makes regardless of origin, including cross-origin CDNs.
+func (b *Browser) Run(pageURL string) PageResult {
+	result := PageResult{
+		URL:  pageURL,
+		Date: time.Now(),
+	}
+
+	tabCtx, cancelTab := chromedp.NewContext(b.ctx)
+	defer cancelTab()
+
+	ctx, cancelTimeout := context.WithTimeout(tabCtx, 90*time.Second)
 	defer cancelTimeout()
 
 	var mu sync.Mutex
 	requests := map[network.RequestID]*inFlight{}
 	var completed []Resource
-	pageStart := time.Now()
+	var pageStart time.Time // set by the first request (the document)
 
 	// CDP network events fire at the browser engine level — no CORS filtering,
 	// captures everything: own server, Storyblok, CDNs, analytics, fonts, etc.
+	// Timings use Chrome's own event timestamps, not when Go receives the event.
 	chromedp.ListenTarget(ctx, func(ev interface{}) {
 		mu.Lock()
 		defer mu.Unlock()
@@ -146,9 +179,13 @@ func Run(pageURL string) PageResult {
 			if strings.HasPrefix(e.Request.URL, "data:") {
 				return
 			}
+			start := eventTime(e.Timestamp)
+			if pageStart.IsZero() {
+				pageStart = start
+			}
 			requests[e.RequestID] = &inFlight{
 				url:       e.Request.URL,
-				startTime: time.Now(),
+				startTime: start,
 				reqType:   strings.ToLower(e.Type.String()),
 			}
 
@@ -163,7 +200,7 @@ func Run(pageURL string) PageResult {
 			if !ok {
 				return
 			}
-			durationMs := float64(time.Since(req.startTime).Milliseconds())
+			durationMs := float64(eventTime(e.Timestamp).Sub(req.startTime).Milliseconds())
 			startMs := float64(req.startTime.Sub(pageStart).Milliseconds())
 			if startMs < 0 {
 				startMs = 0
@@ -185,20 +222,32 @@ func Run(pageURL string) PageResult {
 	})
 
 	var title string
+	var navStart time.Time
 
-	err = chromedp.Run(ctx,
+	err := chromedp.Run(ctx,
 		// Enable network capture with cache disabled so sizes are real
 		network.Enable(),
 		network.SetCacheDisabled(true),
+		chromedp.ActionFunc(func(context.Context) error {
+			navStart = time.Now()
+			return nil
+		}),
+		// Navigate returns once the page's load event has fired
 		chromedp.Navigate(pageURL),
+		chromedp.ActionFunc(func(context.Context) error {
+			result.TotalTimeMs = time.Since(navStart).Milliseconds()
+			return nil
+		}),
 		chromedp.WaitVisible("body", chromedp.ByQuery),
 		// Wait for lazy-loaded assets, JS bundles, and async fetches to settle
 		chromedp.Sleep(3*time.Second),
 		chromedp.Title(&title),
 	)
 
-	result.TotalTimeMs = time.Since(pageStart).Milliseconds()
 	result.Title = title
+	if result.TotalTimeMs == 0 && !navStart.IsZero() {
+		result.TotalTimeMs = time.Since(navStart).Milliseconds()
+	}
 
 	if err != nil {
 		result.Error = fmt.Sprintf("browser error: %v", err)
@@ -206,10 +255,29 @@ func Run(pageURL string) PageResult {
 	}
 
 	mu.Lock()
-	result.Resources = completed
+	result.Resources = append([]Resource(nil), completed...)
 	mu.Unlock()
 
 	return result
+}
+
+// Run audits a single URL in its own short-lived browser.
+// Prefer NewBrowser + Browser.Run when auditing several pages.
+func Run(pageURL string) PageResult {
+	b, err := NewBrowser()
+	if err != nil {
+		return PageResult{URL: pageURL, Date: time.Now(), Error: err.Error()}
+	}
+	defer b.Close()
+	return b.Run(pageURL)
+}
+
+// eventTime converts a CDP timestamp, falling back to now if it's missing.
+func eventTime(t *cdp.MonotonicTime) time.Time {
+	if t == nil {
+		return time.Now()
+	}
+	return t.Time()
 }
 
 // classifyType gives a clean human-readable type label

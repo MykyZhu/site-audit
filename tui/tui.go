@@ -59,7 +59,7 @@ var (
 type viewState int
 
 const (
-	stateIdle      viewState = iota
+	stateIdle viewState = iota
 	stateCrawling
 	stateSelecting
 	stateAuditing
@@ -71,32 +71,45 @@ const (
 type focusArea int
 
 const (
-	focusURL       focusArea = iota
-	focusSaved                // pinned URLs
-	focusHistory              // past scan logs
+	focusURL     focusArea = iota
+	focusSaved             // pinned URLs
+	focusHistory           // past scan logs
 	focusFinderBtn
 	focusRight
 )
 
 // ── Messages ──────────────────────────────────────────────────────────────────
 
+// Every scan gets a run ID. Messages from an older run are ignored, so a
+// late result can never write into a newer scan's state.
+
 type crawlDoneMsg struct {
+	run   int
 	pages []crawler.Page
 	err   error
 }
 
+type browserReadyMsg struct {
+	run     int
+	pages   []crawler.Page
+	browser *audit.Browser
+	err     error
+}
+
 type auditNextMsg struct {
+	run   int
 	pages []crawler.Page
 	index int
 }
 
 type auditPageDoneMsg struct {
+	run    int
 	index  int
 	result audit.PageResult
 	pages  []crawler.Page
 }
 
-type auditAllDoneMsg struct{}
+type auditAllDoneMsg struct{ run int }
 
 // ── Model ─────────────────────────────────────────────────────────────────────
 
@@ -106,6 +119,11 @@ type Model struct {
 
 	state viewState
 	focus focusArea
+
+	// Current scan
+	runID   int
+	scanURL string
+	browser *audit.Browser
 
 	// Left: URL input
 	urlInput textinput.Model
@@ -187,7 +205,8 @@ func NewWithFile(path string) (Model, error) {
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 func (m Model) Init() tea.Cmd {
-	return tea.Batch(textinput.Blink, m.spinner.Tick)
+	// The spinner only ticks while a scan is running (see startScan).
+	return textinput.Blink
 }
 
 // ── Update ────────────────────────────────────────────────────────────────────
@@ -209,9 +228,15 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case spinner.TickMsg:
 		var cmd tea.Cmd
 		m.spinner, cmd = m.spinner.Update(msg)
-		cmds = append(cmds, cmd)
+		// Stop ticking when idle so the screen isn't redrawn 10x a second
+		if m.busy() {
+			cmds = append(cmds, cmd)
+		}
 
 	case crawlDoneMsg:
+		if msg.run != m.runID {
+			break
+		}
 		if msg.err != nil {
 			m.state = stateIdle
 			m.setError("Crawl error: " + msg.err.Error())
@@ -229,15 +254,36 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.setStatus(fmt.Sprintf("Found %d page(s) — space: toggle  a: all  enter: audit", len(msg.pages)))
 		}
 
+	case browserReadyMsg:
+		if msg.run != m.runID {
+			msg.browser.Close()
+			break
+		}
+		if msg.err != nil {
+			m.state = stateSelecting
+			m.setError("Browser error: " + msg.err.Error())
+			break
+		}
+		m.browser = msg.browser
+		cmds = append(cmds, func() tea.Msg {
+			return auditNextMsg{run: msg.run, pages: msg.pages, index: 0}
+		})
+
 	case auditNextMsg:
+		if msg.run != m.runID {
+			break
+		}
 		if msg.index >= len(msg.pages) {
-			cmds = append(cmds, func() tea.Msg { return auditAllDoneMsg{} })
+			cmds = append(cmds, func() tea.Msg { return auditAllDoneMsg{run: msg.run} })
 		} else {
 			m.auditCurrent = msg.index
-			cmds = append(cmds, doAuditOne(msg.pages, msg.index))
+			cmds = append(cmds, doAuditOne(msg.run, m.browser, msg.pages, msg.index))
 		}
 
 	case auditPageDoneMsg:
+		if msg.run != m.runID || msg.index >= len(m.auditLines) {
+			break
+		}
 		m.auditResults = append(m.auditResults, msg.result)
 		r := msg.result
 		var totalB int64
@@ -257,22 +303,29 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			))
 		}
 		cmds = append(cmds, func() tea.Msg {
-			return auditNextMsg{pages: msg.pages, index: msg.index + 1}
+			return auditNextMsg{run: msg.run, pages: msg.pages, index: msg.index + 1}
 		})
 
 	case auditAllDoneMsg:
+		if msg.run != m.runID {
+			break
+		}
+		m.browser.Close()
+		m.browser = nil
 		m.state = stateResults
 		m.focus = focusRight
 
-		home, _ := os.UserHomeDir()
-		outDir := filepath.Join(home, "Desktop", "_Logs")
-		baseName := siteBaseName(m.urlInput.Value()) + "_" + time.Now().Format("2006-01-02_15-04-05")
+		// Name the log after the scanned site, not the input box
+		// (which is empty when the scan started from Saved).
+		site := siteBaseName(m.scanURL)
+		outDir := history.LogsDir()
+		baseName := site + "_" + time.Now().Format("2006-01-02_15-04-05")
 		logPath := filepath.Join(outDir, baseName+".log")
 
 		if err := logger.Write(m.auditResults, outDir, baseName); err != nil {
 			m.setError("Error writing log: " + err.Error())
 		} else {
-			history.Add(siteBaseName(m.urlInput.Value()), logPath)
+			history.Add(site, logPath)
 			m.historyEntries = history.Load()
 			m.setStatus("Saved → " + logPath)
 		}
@@ -281,13 +334,13 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.resizeViewport()
 		m.logViewport.SetContent(m.logContent)
 		m.logViewport.GotoTop()
-		// Reset URL input so it's ready for the next scan
+		// Clear the URL input so it's ready for the next scan
 		m.urlInput.SetValue("")
-		m.urlInput.Focus()
 
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "ctrl+c":
+			m.browser.Close()
 			return m, tea.Quit
 		case "tab":
 			m = m.rotateFocus(1)
@@ -309,10 +362,6 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.logViewport, cmd = m.logViewport.Update(msg)
 			cmds = append(cmds, cmd)
 		}
-	}
-
-	if m.state == stateCrawling || m.state == stateAuditing {
-		cmds = append(cmds, m.spinner.Tick)
 	}
 
 	return m, tea.Batch(cmds...)
@@ -367,7 +416,9 @@ func (m Model) handleKey(msg tea.KeyMsg) (Model, tea.Cmd) {
 			}
 		case "enter", " ":
 			// Open the log file for this history entry
-			if len(m.historyEntries) > 0 {
+			if m.busy() {
+				m.setError("Wait for the current scan to finish.")
+			} else if len(m.historyEntries) > 0 {
 				m.openLogFile(m.historyEntries[m.historyCursor].LogPath)
 			}
 		case "s":
@@ -395,8 +446,12 @@ func (m Model) handleKey(msg tea.KeyMsg) (Model, tea.Cmd) {
 	case focusFinderBtn:
 		switch msg.String() {
 		case "enter", " ":
-			home, _ := os.UserHomeDir()
-			openInFinder(filepath.Join(home, "Desktop", "_Logs"))
+			dir := history.LogsDir()
+			if err := os.MkdirAll(dir, 0755); err != nil {
+				m.setError("Could not create logs folder: " + err.Error())
+			} else {
+				openInFinder(dir)
+			}
 		}
 		return m, nil
 	}
@@ -465,6 +520,7 @@ func (m Model) handleKey(msg tea.KeyMsg) (Model, tea.Cmd) {
 				m.setError("Select at least one page (space to toggle, a for all)")
 				return m, nil
 			}
+			m.runID++
 			m.state = stateAuditing
 			m.auditTotal = len(chosen)
 			m.auditCurrent = 0
@@ -474,7 +530,7 @@ func (m Model) handleKey(msg tea.KeyMsg) (Model, tea.Cmd) {
 				m.auditLines[i] = styleMuted.Render(fmt.Sprintf("  [%d/%d] pending…", i+1, len(chosen)))
 			}
 			m.setStatus(fmt.Sprintf("Auditing %d page(s)…", len(chosen)))
-			return m, func() tea.Msg { return auditNextMsg{pages: chosen, index: 0} }
+			return m, tea.Batch(startBrowser(m.runID, chosen), m.spinner.Tick)
 		case "esc":
 			m.state = stateIdle
 			m.focus = focusURL
@@ -501,14 +557,25 @@ func (m Model) handleKey(msg tea.KeyMsg) (Model, tea.Cmd) {
 
 // startScan kicks off a crawl for the given URL
 func (m *Model) startScan(url string) tea.Cmd {
+	if m.busy() {
+		m.setError("A scan is already running.")
+		return nil
+	}
 	if !strings.HasPrefix(url, "http") {
 		url = "https://" + url
 	}
+	m.runID++
+	m.scanURL = url
 	m.state = stateCrawling
 	m.focus = focusRight
 	m.urlInput.Blur()
 	m.setStatus("Scanning " + url + "…")
-	return doCrawl(url)
+	return tea.Batch(doCrawl(m.runID, url), m.spinner.Tick)
+}
+
+// busy reports whether a crawl or audit is in progress
+func (m Model) busy() bool {
+	return m.state == stateCrawling || m.state == stateAuditing
 }
 
 // openLogFile loads and displays a log file in the right panel
@@ -543,6 +610,23 @@ func (m Model) rotateFocus(dir int) Model {
 		m.urlInput.Blur()
 	}
 	return m
+}
+
+// rightInnerH is the number of content rows inside the right panel
+func (m Model) rightInnerH() int { return m.panelH() - 2 }
+
+// listWindow returns the [start, end) range of a list of n rows that fits in
+// h rows while keeping the cursor row visible.
+func listWindow(cursor, n, h int) (int, int) {
+	if h < 1 {
+		h = 1
+	}
+	start := 0
+	if cursor >= h {
+		start = cursor - h + 1
+	}
+	end := min(start+h, n)
+	return start, end
 }
 
 func (m *Model) resizeViewport() {
@@ -587,7 +671,7 @@ func (m Model) viewLeft() string {
 	// 5 stacked panels in left column, each with a border (2 rows each = 10 total overhead)
 	// Fixed heights: URL=5, Saved=dynamic, History=dynamic, Finder=3
 	// Give Saved and History equal share of what's left
-	const urlOuterH    = 5
+	const urlOuterH = 5
 	const finderOuterH = 3
 	remaining := m.panelH() - urlOuterH - finderOuterH
 	// Split remaining between Saved and History
@@ -734,15 +818,28 @@ func (m Model) viewRightInner() string {
 			styleMuted.Render("Scanning for internal pages…"))
 
 	case stateSelecting:
-		lines := []string{styleTitle.Render("SELECT PAGES"), ""}
-		for i, it := range m.pageItems {
+		selected := 0
+		for _, it := range m.pageItems {
+			if it.selected {
+				selected++
+			}
+		}
+		lines := []string{styleTitle.Render(fmt.Sprintf("SELECT PAGES  %d/%d", selected, len(m.pageItems))), ""}
+		// Only render the rows that fit, scrolled to keep the cursor visible.
+		// Each label is cut to one line so it can't wrap and push the layout.
+		start, end := listWindow(m.pageCursor, len(m.pageItems), m.rightInnerH()-2)
+		labelW := m.rightW() - 4 - 5
+		for i := start; i < end; i++ {
+			it := m.pageItems[i]
 			check := styleMuted.Render("○")
 			if it.selected {
 				check = styleGreen.Render("◉")
 			}
-			label := it.page.URL
+			label := truncate(it.page.URL, labelW)
 			if it.page.Title != "" && it.page.Title != it.page.URL {
-				label += styleMuted.Render("  (" + truncate(it.page.Title, 40) + ")")
+				if room := labelW - lipgloss.Width(label) - 4; room > 5 {
+					label += styleMuted.Render("  (" + truncate(it.page.Title, min(40, room)) + ")")
+				}
 			}
 			prefix := "  "
 			lineStyle := styleText
@@ -756,7 +853,10 @@ func (m Model) viewRightInner() string {
 
 	case stateAuditing:
 		lines := []string{styleTitle.Render("AUDITING"), ""}
-		for i, line := range m.auditLines {
+		// Each entry takes two rows
+		start, end := listWindow(m.auditCurrent, len(m.auditLines), (m.rightInnerH()-2)/2)
+		for i := start; i < end; i++ {
+			line := m.auditLines[i]
 			if i == m.auditCurrent && i >= len(m.auditResults) {
 				lines = append(lines,
 					fmt.Sprintf("  %s  %s", m.spinner.View(),
@@ -810,25 +910,36 @@ func (m Model) viewHelp() string {
 
 // ── Commands ──────────────────────────────────────────────────────────────────
 
-func doCrawl(url string) tea.Cmd {
+func doCrawl(run int, url string) tea.Cmd {
 	return func() tea.Msg {
 		pages, err := crawler.Crawl(url)
-		return crawlDoneMsg{pages: pages, err: err}
+		return crawlDoneMsg{run: run, pages: pages, err: err}
 	}
 }
 
-func doAuditOne(pages []crawler.Page, index int) tea.Cmd {
+// startBrowser launches one Chrome that's reused for every page in the scan
+func startBrowser(run int, pages []crawler.Page) tea.Cmd {
 	return func() tea.Msg {
-		result := audit.Run(pages[index].URL)
-		return auditPageDoneMsg{index: index, result: result, pages: pages}
+		b, err := audit.NewBrowser()
+		return browserReadyMsg{run: run, pages: pages, browser: b, err: err}
+	}
+}
+
+func doAuditOne(run int, b *audit.Browser, pages []crawler.Page, index int) tea.Cmd {
+	return func() tea.Msg {
+		result := b.Run(pages[index].URL)
+		return auditPageDoneMsg{run: run, index: index, result: result, pages: pages}
 	}
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 func openInFinder(path string) {
-	exec.Command("open", path).Start()
+	// Run in the background so the UI never waits on it
+	go exec.Command("open", path).Run()
 }
+
+var unsafeNameChars = regexp.MustCompile(`[^a-zA-Z0-9.\-]`)
 
 func siteBaseName(rawURL string) string {
 	s := strings.TrimPrefix(rawURL, "https://")
@@ -837,8 +948,7 @@ func siteBaseName(rawURL string) string {
 		s = s[:i]
 	}
 	s = strings.TrimPrefix(s, "www.")
-	re := regexp.MustCompile(`[^a-zA-Z0-9.\-]`)
-	return re.ReplaceAllString(s, "_")
+	return unsafeNameChars.ReplaceAllString(s, "_")
 }
 
 func formatBytes(b int64) string {
@@ -852,9 +962,14 @@ func formatBytes(b int64) string {
 	}
 }
 
+// truncate shortens s to at most max characters without splitting UTF-8
 func truncate(s string, max int) string {
-	if len(s) <= max {
+	if max < 1 {
+		return ""
+	}
+	r := []rune(s)
+	if len(r) <= max {
 		return s
 	}
-	return s[:max]
+	return string(r[:max])
 }

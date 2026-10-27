@@ -10,6 +10,13 @@ import (
 	"golang.org/x/net/html"
 )
 
+const userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 site-audit"
+
+var httpClient = &http.Client{Timeout: 15 * time.Second}
+
+// Files that aren't pages
+var skipExts = []string{".pdf", ".zip", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".mp4", ".webp", ".ico"}
+
 // Page represents a discovered internal page
 type Page struct {
 	URL   string
@@ -18,26 +25,34 @@ type Page struct {
 
 // Crawl fetches the entry URL and returns all unique internal pages found on it (shallow)
 func Crawl(entryURL string) ([]Page, error) {
-	base, err := url.Parse(entryURL)
-	if err != nil {
+	if _, err := url.Parse(entryURL); err != nil {
 		return nil, fmt.Errorf("invalid URL: %w", err)
 	}
 
-	// Normalize — always use scheme + host as the boundary for "internal"
-	base.Fragment = ""
-	base.RawQuery = ""
+	req, err := http.NewRequest(http.MethodGet, entryURL, nil)
+	if err != nil {
+		return nil, fmt.Errorf("invalid URL: %w", err)
+	}
+	// Some sites reject Go's default User-Agent
+	req.Header.Set("User-Agent", userAgent)
+	req.Header.Set("Accept", "text/html,application/xhtml+xml")
 
-	client := &http.Client{Timeout: 15 * time.Second}
-
-	resp, err := client.Get(entryURL)
+	resp, err := httpClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("could not fetch page: %w", err)
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode != 200 {
+	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("server returned %d", resp.StatusCode)
 	}
+
+	// Use the final URL after redirects (e.g. example.com → www.example.com)
+	// as the base, otherwise every link looks external.
+	finalURL := resp.Request.URL.String()
+	base := *resp.Request.URL
+	base.Fragment = ""
+	base.RawQuery = ""
 
 	doc, err := html.Parse(resp.Body)
 	if err != nil {
@@ -49,7 +64,7 @@ func Crawl(entryURL string) ([]Page, error) {
 
 	// Always include the entry page itself
 	entryTitle := extractTitle(doc)
-	cleanEntry := cleanURL(entryURL)
+	cleanEntry := cleanURL(finalURL)
 	seen[cleanEntry] = true
 	pages = append(pages, Page{URL: cleanEntry, Title: entryTitle})
 
@@ -60,11 +75,11 @@ func Crawl(entryURL string) ([]Page, error) {
 			for _, attr := range n.Attr {
 				if attr.Key == "href" {
 					link := strings.TrimSpace(attr.Val)
-					resolved := resolveLink(base, link)
+					resolved := resolveLink(&base, link)
 					if resolved == "" {
 						break
 					}
-					if !seen[resolved] && isInternal(base, resolved) {
+					if !seen[resolved] && isInternal(&base, resolved) {
 						seen[resolved] = true
 						pages = append(pages, Page{URL: resolved, Title: resolved})
 					}
@@ -92,18 +107,17 @@ func resolveLink(base *url.URL, href string) string {
 		return ""
 	}
 
-	// Skip file extensions that aren't pages
-	lower := strings.ToLower(href)
-	skipExts := []string{".pdf", ".zip", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".mp4", ".webp", ".ico"}
+	parsed, err := url.Parse(href)
+	if err != nil {
+		return ""
+	}
+
+	// Skip file extensions that aren't pages (ignoring any ?query)
+	lower := strings.ToLower(parsed.Path)
 	for _, ext := range skipExts {
 		if strings.HasSuffix(lower, ext) {
 			return ""
 		}
-	}
-
-	parsed, err := url.Parse(href)
-	if err != nil {
-		return ""
 	}
 
 	resolved := base.ResolveReference(parsed)
@@ -119,18 +133,25 @@ func isInternal(base *url.URL, resolved string) bool {
 	return u.Host == base.Host
 }
 
-// cleanURL strips fragments and trailing slashes for deduplication
+// cleanURL strips fragments and trailing slashes for deduplication.
+// "https://site.com" and "https://site.com/" both become "https://site.com/".
 func cleanURL(raw string) string {
 	u, err := url.Parse(raw)
 	if err != nil {
 		return raw
 	}
 	u.Fragment = ""
-	result := u.String()
-	if result != u.Scheme+"://"+u.Host+"/" {
-		result = strings.TrimRight(result, "/")
+	u.RawFragment = ""
+	if u.Path == "" {
+		u.Path = "/"
+	} else if u.Path != "/" {
+		u.Path = strings.TrimRight(u.Path, "/")
+		u.RawPath = ""
+		if u.Path == "" {
+			u.Path = "/"
+		}
 	}
-	return result
+	return u.String()
 }
 
 // extractTitle pulls the <title> text from a parsed doc

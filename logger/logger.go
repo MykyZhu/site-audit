@@ -35,7 +35,6 @@ func Write(results []audit.PageResult, dir string, baseName string) error {
 	return nil
 }
 
-// buildContent builds the full report string shared by .log and .txt
 // BuildContent builds the full report string (exported for TUI use)
 func BuildContent(results []audit.PageResult) string {
 	var sb strings.Builder
@@ -239,9 +238,11 @@ func formatBytes(b int64) string {
 	}
 }
 
+// truncate shortens s to at most max characters without splitting UTF-8.
 func truncate(s string, max int) string {
-	if len(s) <= max {
+	r := []rune(s)
+	if len(r) <= max {
 		return s
 	}
-	return s[:max]
+	return string(r[:max])
 }

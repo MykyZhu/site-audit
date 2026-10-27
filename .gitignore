@@ -1,0 +1,9 @@
+# Build output
+/site-audit
+/dist/
+
+# Local logs
+*.log
+
+# macOS
+.DS_Store

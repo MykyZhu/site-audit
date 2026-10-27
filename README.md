@@ -50,19 +50,17 @@ npx @puppeteer/browsers install chrome-headless-shell
 
 ### Build from source
 
-Requires Go 1.22+ and Node.js (for the Chrome install step).
+Requires Go 1.26+ and Node.js (for the Chrome install step).
 
 ```bash
 git clone https://github.com/MykyZhu/site-audit
 cd site-audit
-go mod tidy
-go build -o site-audit .
+# Build and install to ~/bin so `site-audit` runs from any folder
+# (make sure ~/bin is on your PATH; or use: make install PREFIX=/usr/local/bin)
+make install
 
 # Install chrome-headless-shell (required for scanning)
 npx @puppeteer/browsers install chrome-headless-shell
-
-# Optionally make it available system-wide
-ln -sf "$(pwd)/site-audit" ~/bin/site-audit
 ```
 
 ---

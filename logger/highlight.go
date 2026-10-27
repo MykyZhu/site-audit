@@ -8,14 +8,14 @@ import (
 
 // Colour palette for the TUI viewer
 var (
-	hAccent  = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("12"))   // blue — headers
-	hMuted   = lipgloss.NewStyle().Foreground(lipgloss.Color("8"))                // grey — dividers
-	hGreen   = lipgloss.NewStyle().Foreground(lipgloss.Color("10"))               // green — ok/sizes
-	hRed     = lipgloss.NewStyle().Foreground(lipgloss.Color("9"))                // red — errors
-	hYellow  = lipgloss.NewStyle().Foreground(lipgloss.Color("11"))               // yellow — timing
-	hCyan    = lipgloss.NewStyle().Foreground(lipgloss.Color("14"))               // cyan — URLs
-	hBold    = lipgloss.NewStyle().Bold(true)                                     // bold — labels
-	hDim     = lipgloss.NewStyle().Foreground(lipgloss.Color("7"))                // normal text
+	hAccent = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("12")) // blue — headers
+	hMuted  = lipgloss.NewStyle().Foreground(lipgloss.Color("8"))             // grey — dividers
+	hGreen  = lipgloss.NewStyle().Foreground(lipgloss.Color("10"))            // green — ok/sizes
+	hRed    = lipgloss.NewStyle().Foreground(lipgloss.Color("9"))             // red — errors
+	hYellow = lipgloss.NewStyle().Foreground(lipgloss.Color("11"))            // yellow — timing
+	hCyan   = lipgloss.NewStyle().Foreground(lipgloss.Color("14"))            // cyan — URLs
+	hBold   = lipgloss.NewStyle().Bold(true)                                  // bold — labels
+	hDim    = lipgloss.NewStyle().Foreground(lipgloss.Color("7"))             // normal text
 
 	// Resource type colours
 	typeColors = map[string]lipgloss.Style{
@@ -193,49 +193,23 @@ func colorLabelLine(line, label string) string {
 	return prefix + hBold.Render(key) + valueStyled
 }
 
-// colorResourceRow colours a resource table data row
+// colorResourceRow colours a resource table data row.
+// Rows are written as "  %-10s %-10s %-12s %-10s %s", so each column is its
+// width plus one separator space: type 11, duration 11, size 13, start 11.
 func colorResourceRow(line string) string {
-	// Format: "  TYPE      DURATION   SIZE         START      URL"
-	// We parse by splitting on runs of spaces, but preserve alignment by
-	// working with fixed field positions based on the format string widths:
-	// 2 indent, 10 type, 10 duration, 12 size, 10 start, rest=url
-	if len(line) < 44 {
+	const wType, wDur, wSize, wStart = 11, 11, 13, 11
+	if len(line) < 2+wType+wDur+wSize+wStart {
 		return hDim.Render(line)
 	}
 
 	indent := line[:2]
 	rest := line[2:]
+	typeField, rest := rest[:wType], rest[wType:]
+	durationField, rest := rest[:wDur], rest[wDur:]
+	sizeField, rest := rest[:wSize], rest[wSize:]
+	startField, urlField := rest[:wStart], rest[wStart:]
 
-	// type: 10 chars
-	if len(rest) < 10 {
-		return hDim.Render(line)
-	}
-	typeField := rest[:10]
-	rest = rest[10:]
-
-	// duration: 10 chars
-	if len(rest) < 10 {
-		return hDim.Render(line)
-	}
-	durationField := rest[:10]
-	rest = rest[10:]
-
-	// size: 12 chars
-	if len(rest) < 12 {
-		return hDim.Render(line)
-	}
-	sizeField := rest[:12]
-	rest = rest[12:]
-
-	// start: 10 chars
-	if len(rest) < 10 {
-		return hDim.Render(line)
-	}
-	startField := rest[:10]
-	urlField := rest[10:]
-
-	typeName := strings.TrimSpace(typeField)
-	typeStyle, ok := typeColors[typeName]
+	typeStyle, ok := typeColors[strings.TrimSpace(typeField)]
 	if !ok {
 		typeStyle = hDim
 	}
